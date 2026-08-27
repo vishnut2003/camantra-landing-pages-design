@@ -10,11 +10,12 @@ Each folder contains self-contained landing page design concepts:
 
 ```
 business-loan/
-  index.html   → Gallery page — start here to compare all 3 designs
-  v1/          → Design V1: Classic Corporate (navy + steel blue, traditional finance look)
-  v2/          → Design V2: Modern Bold (dark fintech look, blue accent)
-  v3/          → Design V3: Minimal Editorial (soft off-white, serif, boutique advisory look)
+  index.html   → Preview entry page (compare designs)
+  v1/          → Design V1: Classic Corporate (navy + steel blue, dark photo overlays)
+  v2/          → Design V2: Light Premium (white + soft blue, large rounded photos, floating badges)
 ```
+
+Two earlier concepts (the original dark-fintech V2 and Minimal Editorial V3) were removed; they remain in git history if ever needed.
 
 Each design folder has an `index.html` (the landing page) and a `thank-you.html` (the page shown after the form is submitted).
 
@@ -37,9 +38,8 @@ No installation, build step, or server is required — the pages open directly i
 
 | Design | Concept | Status |
 |--------|---------|--------|
-| Business Loan V1 | Classic Corporate (navy + steel blue) | Awaiting client review |
-| Business Loan V2 | Modern Bold (dark + blue accent) | Awaiting client review |
-| Business Loan V3 | Minimal Editorial (off-white + serif) | Awaiting client review |
+| Business Loan V1 | Classic Corporate (navy + steel blue) | Polished — awaiting client review |
+| Business Loan V2 | Light Premium (white + photos) | New — awaiting client review |
 
 ---
 

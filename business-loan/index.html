@@ -20,44 +20,34 @@ h1{font-size:clamp(28px,4vw,40px);font-weight:800;line-height:1.2;margin-bottom:
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(14,42,79,.12)}
 .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:26px;letter-spacing:.02em}
 .t1{background:linear-gradient(135deg,#0e2a4f,#1b4d8c);color:#a5d4f6}
-.t2{background:radial-gradient(400px 200px at 70% 0%,rgba(77,168,236,.25),transparent 60%),#080f1a;color:#4da8ec;font-family:'Inter'}
-.t3{background:#f6f8fa;color:#1c4f7e;border-bottom:1px solid #dfe4ea}
-.t3 span{font-family:Georgia,serif;font-style:italic}
+.t2{background:linear-gradient(180deg,#fff,#e3eef8);color:#1b4d8c;border-bottom:1px solid #dfe7ef}
+@media(min-width:700px){.grid{grid-template-columns:1fr 1fr}}
 .body{padding:22px 22px 24px;flex:1;display:flex;flex-direction:column}
 .body h2{font-size:19px;font-weight:800;color:#0e2a4f;margin-bottom:6px}
 .body p{font-size:14px;color:#5a6b7d;flex:1}
 .open{margin-top:16px;font-size:14px;font-weight:700;color:#1b4d8c}
-@media(min-width:820px){.grid{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <span class="tag">CA Mantra · For client review</span>
-  <h1>Business Loan Landing Page<br>— 3 Design Concepts</h1>
-  <p class="intro">Same content and structure on all three pages, three different visual directions. Open each one, check it on your phone too, and tell us which direction to take forward.</p>
+  <h1>Business Loan Landing Page<br>— Design Concepts</h1>
+  <p class="intro">Two design directions for the business loan campaign page. Open each, check them on your phone too, and tell us which to take forward.</p>
   <p class="note">Figures and contact details are sample values to be finalised. Forms are visual previews — they don't send data yet.</p>
-  <div class="grid">
+  <div class="grid" style="max-width:880px">
     <a class="card" href="v1/index.html">
       <div class="thumb t1">Design V1</div>
       <div class="body">
         <h2>Classic Corporate</h2>
-        <p>Deep navy and steel blue, traditional finance look. Structured, familiar and trust-first — feels like an established firm.</p>
+        <p>Deep navy and steel blue with photo backgrounds under dark overlays. Structured, familiar and trust-first — feels like an established firm.</p>
         <span class="open">Open design &rarr;</span>
       </div>
     </a>
     <a class="card" href="v2/index.html">
       <div class="thumb t2">Design V2</div>
       <div class="body">
-        <h2>Modern Bold</h2>
-        <p>Near-black hero with a bright blue accent, large type and glass-effect form. Feels like a modern fintech brand.</p>
-        <span class="open">Open design &rarr;</span>
-      </div>
-    </a>
-    <a class="card" href="v3/index.html">
-      <div class="thumb t3"><span>Design V3</span></div>
-      <div class="body">
-        <h2>Minimal Editorial</h2>
-        <p>Soft off-white, serif headlines and generous whitespace. Feels like a premium boutique advisory practice.</p>
+        <h2>Light Premium</h2>
+        <p>Bright white and soft blue with large rounded photos and floating badges. Airy, modern and professional.</p>
         <span class="open">Open design &rarr;</span>
       </div>
     </a>
