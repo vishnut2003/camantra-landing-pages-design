@@ -41,17 +41,20 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 .hdr-call span small{display:block;font-size:11px;font-weight:500;color:var(--muted)}
 
 /* hero */
-.hero{background:linear-gradient(180deg,#fff 0%,var(--bg) 100%);border-bottom:1px solid var(--line)}
-.hero .wrap{display:grid;grid-template-columns:1fr;gap:36px;padding-top:44px;padding-bottom:56px}
-.hero h1{font-size:clamp(28px,4.2vw,44px);font-weight:800;margin-bottom:16px}
-.hero h1 em{font-style:normal;color:var(--navy-3);border-bottom:4px solid var(--gold)}
-.hero-sub{font-size:17px;color:var(--muted);margin-bottom:26px;max-width:560px}
-.trust{list-style:none;display:grid;gap:12px}
-.trust li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:15px;color:var(--ink)}
-.trust .ic{flex:none;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;display:grid;place-items:center;margin-top:1px}
+.hero{background:radial-gradient(760px 460px at 84% 6%,rgba(46,124,192,.38),transparent 62%),linear-gradient(100deg,rgba(8,24,45,.95) 0%,rgba(11,33,61,.87) 50%,rgba(14,42,79,.70) 100%),url('../../assets/hero-office.jpg') center/cover no-repeat;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:90px;background:linear-gradient(180deg,transparent,rgba(8,24,45,.55));pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:36px;padding-top:44px;padding-bottom:56px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);color:#dce9f5;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
+.hero-eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(46,124,192,.28)}
+.hero h1{font-size:clamp(28px,4.2vw,46px);font-weight:800;margin-bottom:16px;color:#fff;text-wrap:balance;text-shadow:0 2px 24px rgba(4,14,28,.45)}
+.hero h1 em{font-style:normal;color:#8ec4ec;border-bottom:4px solid var(--gold)}
+.hero-sub{font-size:17px;color:#c9d6e4;margin-bottom:28px;max-width:560px}
+.trust{list-style:none;display:grid;gap:10px}
+.trust li{display:flex;gap:12px;align-items:flex-start;font-weight:600;font-size:14.5px;line-height:1.45;color:#fff;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.15);border-radius:10px;padding:13px 15px;backdrop-filter:blur(6px)}
+.trust .ic{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3f93d8,var(--gold));color:#fff;display:grid;place-items:center;margin-top:-1px;box-shadow:0 4px 12px rgba(46,124,192,.4)}
 
 /* form card */
-.form-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 24px}
+.form-card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--radius);box-shadow:0 24px 60px rgba(4,14,28,.35);padding:26px 24px}
 .form-card h3{font-size:21px;margin-bottom:4px}
 .form-card .fc-sub{font-size:13.5px;color:var(--muted);margin-bottom:18px}
 .f-row{margin-bottom:13px}
@@ -80,55 +83,78 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 
 /* cards */
 .cards{display:grid;gap:18px;grid-template-columns:1fr}
-.card{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:var(--radius);padding:24px 22px;box-shadow:0 4px 14px rgba(14,42,79,.05)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 24px;box-shadow:0 4px 14px rgba(14,42,79,.05);position:relative;overflow:hidden;transition:transform .18s,box-shadow .18s,border-color .18s}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--navy-3),var(--gold));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(14,42,79,.14);border-color:#c6d8ea}
+.card:hover::before{transform:scaleX(1)}
+.card .c-ic{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#e3eef8,#f2f7fc);border:1px solid #d2e2f1;color:var(--navy-3);display:grid;place-items:center;margin-bottom:16px}
+.card:hover .c-ic{background:var(--navy);color:#8ec4ec;border-color:var(--navy);transition:background .2s,color .2s}
 .card h3{font-size:17.5px;margin-bottom:6px}
-.card p{font-size:14px;color:var(--muted);margin-bottom:12px}
-.card ul{list-style:none}
-.card li{position:relative;padding-left:22px;font-size:14px;margin-bottom:7px;color:var(--ink)}
-.card li::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:2px;background:var(--gold)}
+.card p{font-size:14px;color:var(--muted);margin-bottom:14px}
+.card ul{list-style:none;border-top:1px dashed var(--line);padding-top:12px}
+.card li{position:relative;padding-left:24px;font-size:14px;margin-bottom:8px;color:var(--ink)}
+.card li::before{content:"✓";position:absolute;left:0;top:0;color:var(--gold);font-weight:800;font-size:13px}
 
 /* fit */
-.fit{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.fit-list{display:grid;grid-template-columns:1fr;gap:12px 40px;max-width:860px;margin:0 auto;list-style:none}
-.fit-list li{display:flex;gap:12px;align-items:flex-start;font-size:15.5px;font-weight:500}
-.fit-list .ic{flex:none;width:24px;height:24px;border-radius:50%;background:#e3eef8;color:var(--ok);display:grid;place-items:center;margin-top:2px}
-.note{text-align:center;font-size:15px;color:var(--muted);max-width:640px;margin:30px auto 0;padding:16px 22px;background:var(--gold-soft);border-radius:var(--radius)}
-.note strong{color:var(--navy)}
+.fit{background:linear-gradient(180deg,var(--white) 0%,#eef5fb 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fit-list{display:grid;grid-template-columns:1fr;gap:12px 16px;max-width:920px;margin:0 auto;list-style:none}
+.fit-list li{display:flex;gap:13px;align-items:flex-start;font-size:15px;font-weight:600;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:12px;padding:15px 18px;box-shadow:0 3px 10px rgba(14,42,79,.04);transition:transform .15s,box-shadow .15s,border-color .15s}
+.fit-list li:hover{transform:translateY(-3px);border-color:#c6d8ea;box-shadow:0 12px 28px rgba(14,42,79,.11)}
+.fit-list .ic{flex:none;width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3f93d8,var(--gold));color:#fff;display:grid;place-items:center;margin-top:0;box-shadow:0 3px 10px rgba(46,124,192,.35)}
+.note{display:flex;flex-direction:column;align-items:center;gap:16px;text-align:center;max-width:920px;margin:36px auto 0;padding:28px;background:radial-gradient(460px 220px at 10% 0%,rgba(63,147,216,.38),transparent 62%),linear-gradient(120deg,var(--navy),var(--navy-3));border:1px solid rgba(142,196,236,.28);border-radius:14px;box-shadow:0 16px 38px rgba(14,42,79,.28)}
+.note-icon{flex:none;width:56px;height:56px;border-radius:50%;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.24);display:grid;place-items:center;color:#8ec4ec}
+.note-txt strong{display:block;color:#fff;font-size:18.5px;margin-bottom:5px}
+.note-txt p{font-size:14.5px;color:#c9d6e4;max-width:560px}
+.note-cta{flex:none;display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:#fff;border-radius:8px;font-weight:800;font-size:14.5px;text-decoration:none;white-space:nowrap;box-shadow:0 8px 22px rgba(46,124,192,.45);transition:filter .15s,transform .12s}
+.note-cta:hover{filter:brightness(1.08)}
+.note-cta:active{transform:scale(.97)}
 
 /* docs */
 .docs{display:grid;gap:18px;grid-template-columns:1fr}
-.doc-col{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
-.doc-col h3{font-size:16px;padding-bottom:10px;border-bottom:2px solid var(--gold);margin-bottom:14px}
+.doc-col{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(14,42,79,.05);transition:transform .15s,box-shadow .15s,border-color .15s}
+.doc-col:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(14,42,79,.12);border-color:#c6d8ea}
+.d-head{display:flex;align-items:center;gap:12px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px dashed var(--line)}
+.d-ic{flex:none;width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#e3eef8,#f2f7fc);border:1px solid #d2e2f1;color:var(--navy-3);display:grid;place-items:center}
+.doc-col h3{font-size:16.5px}
 .doc-col ul{list-style:none}
-.doc-col li{position:relative;padding-left:24px;font-size:14px;margin-bottom:9px;color:var(--ink)}
-.doc-col li::before{content:"✓";position:absolute;left:0;color:var(--ok);font-weight:800}
-.doc-note{text-align:center;font-size:14.5px;color:var(--muted);margin-top:24px}
+.doc-col li{position:relative;padding-left:28px;font-size:14px;margin-bottom:10px;color:var(--ink)}
+.doc-col li::before{content:"✓";position:absolute;left:0;top:1px;width:18px;height:18px;border-radius:50%;background:#e3eef8;color:var(--gold);font-weight:800;font-size:11px;display:grid;place-items:center}
+.doc-note{display:flex;align-items:center;justify-content:center;gap:10px;font-size:14.5px;color:var(--muted);margin:28px auto 0;padding:13px 26px;background:var(--white);border:1px solid var(--line);border-radius:999px;width:fit-content;box-shadow:0 4px 14px rgba(14,42,79,.06)}
 .doc-note strong{color:var(--navy)}
+.doc-note .dn-ic{flex:none;color:var(--gold);display:grid;place-items:center}
 
 /* steps */
-.steps-sec{background:var(--navy);color:#fff}
+.steps-sec{background:radial-gradient(720px 420px at 86% 0%,rgba(46,124,192,.30),transparent 62%),linear-gradient(115deg,rgba(8,24,45,.96) 0%,rgba(11,33,61,.92) 55%,rgba(14,42,79,.86) 100%),url('../../assets/steps-meeting.jpg') center/cover no-repeat;color:#fff}
 .steps-sec h2{color:#fff}
 .steps-sec .kicker{color:#8ec4ec}
-.steps{display:grid;grid-template-columns:1fr;gap:0;max-width:900px;margin:0 auto;position:relative}
-.step{position:relative;padding:0 0 34px 62px}
-.step:last-child{padding-bottom:0}
-.step::before{content:"";position:absolute;left:21px;top:46px;bottom:0;width:2px;background:rgba(255,255,255,.18)}
-.step:last-child::before{display:none}
-.step-n{position:absolute;left:0;top:0;width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
-.step h3{color:#fff;font-size:17px;margin-bottom:5px;padding-top:8px}
-.step p{font-size:14.5px;color:#c3d0e0}
+.steps{display:grid;grid-template-columns:1fr;gap:16px;max-width:1020px;margin:0 auto}
+.step{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:22px;overflow:hidden;transition:transform .16s,border-color .16s,background .16s}
+.step:hover{transform:translateY(-4px);border-color:rgba(142,196,236,.45);background:rgba(255,255,255,.09)}
+.step::after{content:attr(data-n);position:absolute;right:12px;bottom:-6px;font-size:68px;font-weight:800;color:rgba(255,255,255,.06);line-height:1;pointer-events:none}
+.step-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px}
+.step-n{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#3f93d8,var(--gold));color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px;box-shadow:0 6px 16px rgba(46,124,192,.4)}
+.step-tag{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 11px;border-radius:999px;background:rgba(63,147,216,.22);color:#8ec4ec}
+.step-tag.you{background:rgba(255,255,255,.13);color:#dce9f5}
+.step h3{color:#fff;font-size:17px;margin-bottom:6px}
+.step p{font-size:14px;color:#c3d0e0;position:relative;z-index:1}
 
 /* why */
 .why{display:grid;grid-template-columns:1fr;gap:18px}
-.why-b{background:var(--white);border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:var(--radius);padding:22px}
+.why-b{display:flex;gap:17px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px;box-shadow:0 4px 14px rgba(14,42,79,.05);transition:transform .15s,box-shadow .15s,border-color .15s}
+.why-b:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(14,42,79,.12);border-color:#c6d8ea}
+.why-ic{flex:none;width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#8ec4ec;display:grid;place-items:center;box-shadow:0 6px 16px rgba(14,42,79,.22);transition:background .2s,color .2s}
+.why-b:hover .why-ic{background:linear-gradient(135deg,#3f93d8,var(--gold));color:#fff}
 .why-b h3{font-size:16.5px;margin-bottom:6px}
 .why-b p{font-size:14.5px;color:var(--muted)}
 
 /* areas */
-.areas{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
-.areas .main-cities{font-size:clamp(17px,2.6vw,22px);font-weight:800;color:var(--navy);margin-bottom:10px}
-.areas .sub-areas{font-size:14.5px;color:var(--muted);max-width:620px;margin:0 auto}
-.areas .dot{color:var(--gold);font-weight:800}
+.areas{background:radial-gradient(640px 320px at 50% 0%,#e8f2fb,transparent 72%),var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:800px;margin:0 auto 16px}
+.chip{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;font-weight:700;font-size:15px;box-shadow:0 8px 20px rgba(14,42,79,.22);transition:transform .15s,box-shadow .15s}
+.chip:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,42,79,.3)}
+.chip svg{color:#8ec4ec;flex:none}
+.chip-sub{display:inline-flex;align-items:center;padding:9px 18px;border-radius:999px;background:var(--white);border:1px solid var(--line);color:var(--ink);font-weight:600;font-size:13.5px;box-shadow:0 3px 8px rgba(14,42,79,.05);transition:transform .15s,border-color .15s}
+.chip-sub:hover{transform:translateY(-2px);border-color:#c6d8ea}
 
 /* faq */
 .faq{max-width:780px;margin:0 auto}
@@ -165,14 +191,15 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 
 @media(min-width:768px){
   .sec{padding:72px 0}
-  .hero .wrap{grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;padding-top:60px;padding-bottom:72px}
+  .hero .wrap{grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;padding-top:60px;padding-bottom:72px}
+  .trust{grid-template-columns:1fr 1fr}
+  .note{flex-direction:row;text-align:left;gap:20px;padding:26px 32px}
+  .note-txt{flex:1}
   .cards{grid-template-columns:repeat(3,1fr)}
   .card.wide{grid-column:span 1}
   .fit-list{grid-template-columns:1fr 1fr}
   .docs{grid-template-columns:repeat(3,1fr)}
-  .steps{grid-template-columns:repeat(4,1fr);gap:26px}
-  .step{padding:64px 4px 0 0}
-  .step::before{left:44px;right:-26px;top:21px;bottom:auto;width:auto;height:2px}
+  .steps{grid-template-columns:repeat(4,1fr);gap:18px}
   .why{grid-template-columns:1fr 1fr}
   .closing .wrap{grid-template-columns:1.05fr .95fr}
   .ftr{padding-bottom:40px}
@@ -206,6 +233,7 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 <section class="hero" id="top">
   <div class="wrap">
     <div>
+      <span class="hero-eyebrow"><span class="dot"></span>Chartered Accountants · Business Loan Advisory</span>
       <h1>Business Loan Support for <em>MSMEs</em> in Noida, Greater Noida &amp; Ghaziabad</h1>
       <p class="hero-sub">We are chartered accountants. We put your file together the way lenders want it, take it to the right bank or NBFC, and stay on it till the money is in your account.</p>
       <ul class="trust">
@@ -284,26 +312,31 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
     <p class="sec-sub">Five areas of funding, matched to what your business actually needs.</p>
     <div class="cards">
       <div class="card">
+        <span class="c-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
         <h3>Working Capital &amp; Unsecured Loans</h3>
         <p>Funding for day-to-day running, without putting up property.</p>
         <ul><li>Unsecured business loan</li><li>Collateral-free business loan</li><li>Cash credit and overdraft limits</li><li>Drop line overdraft</li></ul>
       </div>
       <div class="card">
+        <span class="c-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1M9 13h1m4 0h1M9 17h1m4 0h1"/></svg></span>
         <h3>MSME &amp; Scheme-Based Loans</h3>
         <p>Government-backed credit for registered small and medium units.</p>
         <ul><li>MSME loan</li><li>CGTMSE-backed loan</li><li>Stand Up India</li><li>Scheme eligibility check and paperwork</li></ul>
       </div>
       <div class="card">
+        <span class="c-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20M3 22V11l9-7 9 7v11M12 22v-6h0"/></svg></span>
         <h3>Secured — Property, Machinery &amp; Term Loans</h3>
         <p>Larger amounts and longer tenures, backed by an asset.</p>
         <ul><li>Loan against commercial property</li><li>Loan against property</li><li>Machinery and equipment loan</li><li>Term loan for expansion</li></ul>
       </div>
       <div class="card">
+        <span class="c-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8 12 3 3 8v8l9 5 9-5V8ZM3.3 8.1 12 13l8.7-4.9M12 13v9"/></svg></span>
         <h3>Trade Finance</h3>
         <p>Credit that moves with your purchase and sales cycle.</p>
         <ul><li>Bill discounting</li><li>Invoice discounting</li><li>Bank guarantee</li><li>Letter of credit</li><li>Channel finance</li></ul>
       </div>
       <div class="card">
+        <span class="c-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6ZM14 2v6h6M9 15l2 2 4-4"/></svg></span>
         <h3>Advisory &amp; Documentation</h3>
         <p>The part most rejections come down to.</p>
         <ul><li>Project report for bank loan</li><li>CMA data preparation</li><li>Balance sheet and file structuring</li><li>Second opinion on a rejected file</li></ul>
@@ -326,7 +359,16 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
       <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span>You are based in Noida, Greater Noida, Ghaziabad or Faridabad</li>
       <li><span class="ic"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M20 6 9 17l-5-5"/></svg></span>You need anything from ₹10 lakh to ₹5 crore</li>
     </ul>
-    <p class="note"><strong>Not sure if you qualify?</strong> Send us your details anyway. We will tell you honestly where you stand before you spend time on paperwork.</p>
+    <div class="note">
+      <span class="note-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20z"/></svg></span>
+      <div class="note-txt">
+        <strong>Not sure if you qualify?</strong>
+        <p>Send us your details anyway. We will tell you honestly where you stand before you spend time on paperwork.</p>
+      </div>
+      <a class="note-cta" href="#lead-form">Send your details
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -338,19 +380,31 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
     <p class="sec-sub">Short list. This is to remove doubt, not to be complete.</p>
     <div class="docs">
       <div class="doc-col">
-        <h3>Business</h3>
+        <div class="d-head">
+          <span class="d-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+          <h3>Business</h3>
+        </div>
         <ul><li>GST registration</li><li>Udyam registration, if you have it</li><li>Last 2 years' ITR and financials</li><li>Last 12 months' bank statements</li></ul>
       </div>
       <div class="doc-col">
-        <h3>Personal</h3>
+        <div class="d-head">
+          <span class="d-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+          <h3>Personal</h3>
+        </div>
         <ul><li>PAN and Aadhaar of proprietor, partners or directors</li><li>Address proof</li><li>Photographs</li></ul>
       </div>
       <div class="doc-col">
-        <h3>If applicable</h3>
+        <div class="d-head">
+          <span class="d-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/></svg></span>
+          <h3>If applicable</h3>
+        </div>
         <ul><li>Property papers, for a secured loan</li><li>Machinery quotation, for an equipment loan</li><li>Existing loan sanction letters</li></ul>
       </div>
     </div>
-    <p class="doc-note"><strong>Missing something?</strong> That is usually fixable. Tell us on the call.</p>
+    <p class="doc-note">
+      <span class="dn-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+      <span><strong>Missing something?</strong> That is usually fixable. Tell us on the call.</span>
+    </p>
   </div>
 </section>
 
@@ -361,23 +415,23 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
     <h2>Four steps, and we handle three of them</h2>
     <p class="sec-sub" style="color:#c3d0e0">&nbsp;</p>
     <div class="steps">
-      <div class="step">
-        <span class="step-n">01</span>
+      <div class="step" data-n="01">
+        <div class="step-top"><span class="step-n">01</span><span class="step-tag you">Your part</span></div>
         <h3>You tell us what you need</h3>
         <p>A short call to understand the business, the amount and what the money is for.</p>
       </div>
-      <div class="step">
-        <span class="step-n">02</span>
+      <div class="step" data-n="02">
+        <div class="step-top"><span class="step-n">02</span><span class="step-tag">We handle this</span></div>
         <h3>We check where you stand</h3>
         <p>We look at your returns, banking and existing loans, and tell you what is realistically possible.</p>
       </div>
-      <div class="step">
-        <span class="step-n">03</span>
+      <div class="step" data-n="03">
+        <div class="step-top"><span class="step-n">03</span><span class="step-tag">We handle this</span></div>
         <h3>We build and place the file</h3>
         <p>Project report, CMA data and the full file, sent to the lenders most likely to say yes to your profile.</p>
       </div>
-      <div class="step">
-        <span class="step-n">04</span>
+      <div class="step" data-n="04">
+        <div class="step-top"><span class="step-n">04</span><span class="step-tag">We handle this</span></div>
         <h3>We follow it through</h3>
         <p>Queries, sanction, documentation and disbursement. You get one point of contact, not a call centre.</p>
       </div>
@@ -393,20 +447,32 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
     <p class="sec-sub">&nbsp;</p>
     <div class="why">
       <div class="why-b">
-        <h3>Chartered accountants, not loan agents</h3>
-        <p>The same team that understands your books prepares your loan file. That is why the numbers hold up when the bank asks questions.</p>
+        <span class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13 17 22l-5-3-5 3 1.5-9"/></svg></span>
+        <div>
+          <h3>Chartered accountants, not loan agents</h3>
+          <p>The same team that understands your books prepares your loan file. That is why the numbers hold up when the bank asks questions.</p>
+        </div>
       </div>
       <div class="why-b">
-        <h3>We know which lender says yes to what</h3>
-        <p>A file that one bank rejects gets sanctioned by another. We place your file where your profile actually fits, instead of applying everywhere and damaging your record.</p>
+        <span class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+        <div>
+          <h3>We know which lender says yes to what</h3>
+          <p>A file that one bank rejects gets sanctioned by another. We place your file where your profile actually fits, instead of applying everywhere and damaging your record.</p>
+        </div>
       </div>
       <div class="why-b">
-        <h3>Local to the industrial belt</h3>
-        <p>Sahibabad, Site 4, Kavi Nagar, Noida Phase 1, 2 and 3, Ecotech and Faridabad Sectors 24–25. We work with these businesses every week.</p>
+        <span class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <div>
+          <h3>Local to the industrial belt</h3>
+          <p>Sahibabad, Site 4, Kavi Nagar, Noida Phase 1, 2 and 3, Ecotech and Faridabad Sectors 24–25. We work with these businesses every week.</p>
+        </div>
       </div>
       <div class="why-b">
-        <h3>We tell you no when it is a no</h3>
-        <p>If your file is not ready, we will tell you what to fix and when to come back, rather than pushing an application that will be rejected.</p>
+        <span class="why-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        <div>
+          <h3>We tell you no when it is a no</h3>
+          <p>If your file is not ready, we will tell you what to fix and when to come back, rather than pushing an application that will be rejected.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -417,8 +483,20 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
   <div class="wrap">
     <span class="kicker">Areas we serve</span>
     <h2>Where we work</h2>
-    <p class="main-cities" style="margin-top:14px">Noida <span class="dot">·</span> Greater Noida <span class="dot">·</span> Ghaziabad <span class="dot">·</span> Faridabad</p>
-    <p class="sub-areas">Sahibabad · Site 4 · Kavi Nagar · Noida Phase 1, 2 &amp; 3 · Ecotech · Sector 24–25 Faridabad</p>
+    <div class="chip-row" style="margin-top:18px">
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Noida</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Greater Noida</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Ghaziabad</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Faridabad</span>
+    </div>
+    <div class="chip-row">
+      <span class="chip-sub">Sahibabad</span>
+      <span class="chip-sub">Site 4</span>
+      <span class="chip-sub">Kavi Nagar</span>
+      <span class="chip-sub">Noida Phase 1, 2 &amp; 3</span>
+      <span class="chip-sub">Ecotech</span>
+      <span class="chip-sub">Sector 24–25 Faridabad</span>
+    </div>
   </div>
 </section>
 
