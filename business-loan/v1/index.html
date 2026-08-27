@@ -32,7 +32,16 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 
 /* header */
 .hdr{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px}
+@media(max-width:600px){
+  .logo-img{height:26px}
+  .hdr-call{font-size:13.5px;gap:7px}
+  .hdr-call .ic{width:30px;height:30px}
+  .hdr-call span small{display:none}
+  .hdr-call span{white-space:nowrap}
+  .hero-eyebrow{white-space:nowrap}
+  .hero-eyebrow .eb-ext{display:none}
+}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-img{height:34px;width:auto;display:block}
 .ftr .logo-img{height:42px}
@@ -248,7 +257,7 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 <section class="hero" id="top">
   <div class="wrap">
     <div>
-      <span class="hero-eyebrow"><span class="dot"></span>Chartered Accountants · Business Loan Advisory</span>
+      <span class="hero-eyebrow"><span class="dot"></span>Chartered Accountants<span class="eb-ext"> · Business Loan Advisory</span></span>
       <h1>Business Loan Support for <em>MSMEs</em> in Noida, Greater Noida &amp; Ghaziabad</h1>
       <p class="hero-sub">We are chartered accountants. We put your file together the way lenders want it, take it to the right bank or NBFC, and stay on it till the money is in your account.</p>
       <ul class="trust">

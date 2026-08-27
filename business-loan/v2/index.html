@@ -34,7 +34,13 @@ h2{font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-.02em;text-a
 
 /* header */
 .hdr{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
-.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;height:68px}
+@media(max-width:600px){
+  .logo-img{height:26px}
+  .hdr-call{padding:8px 14px;font-size:13px;gap:7px;white-space:nowrap}
+  .kicker{white-space:nowrap}
+  .kicker .eb-ext{display:none}
+}
 .logo{display:flex;align-items:center;text-decoration:none}
 .logo-img{height:36px;width:auto;display:block}
 .hdr-call{display:inline-flex;align-items:center;gap:9px;padding:10px 20px;border-radius:999px;background:var(--blue);color:#fff;font-weight:700;font-size:14.5px;text-decoration:none;box-shadow:0 6px 18px rgba(46,124,192,.35);transition:filter .15s,transform .12s}
@@ -272,7 +278,7 @@ h2{font-size:clamp(26px,3.5vw,38px);font-weight:800;letter-spacing:-.02em;text-a
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="kicker">Chartered Accountants · Business Loan Advisory</span>
+        <span class="kicker">Chartered Accountants<span class="eb-ext"> · Business Loan Advisory</span></span>
         <h1>Business Loan Support for <em>MSMEs</em> in Noida, Greater Noida &amp; Ghaziabad</h1>
         <p class="hero-sub">We are chartered accountants. We put your file together the way lenders want it, take it to the right bank or NBFC, and stay on it till the money is in your account.</p>
         <ul class="trust">
