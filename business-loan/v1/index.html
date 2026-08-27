@@ -70,6 +70,13 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
 .form-tel{text-align:center;font-size:13.5px;color:var(--muted);margin-top:12px}
 .form-tel a{color:var(--navy);font-weight:800;text-decoration:none}
 .consent{font-size:11.5px;color:var(--muted);text-align:center;margin-top:10px}
+.fsteps{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.step-label{font-size:11.5px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.fbars{display:flex;gap:6px}
+.fbar{width:28px;height:4px;border-radius:2px;background:var(--line)}
+.fbar.active{background:var(--gold)}
+.fstep[hidden]{display:none}
+.btn-back{display:block;margin:12px auto 0;background:none;border:none;font:inherit;font-size:13px;color:var(--muted);cursor:pointer;text-decoration:underline}
 
 /* cards */
 .cards{display:grid;gap:18px;grid-template-columns:1fr}
@@ -212,25 +219,8 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
       <h3>Get a call back today</h3>
       <p class="fc-sub">Tell us what you need. A CA from our team will call you back the same working day.</p>
       <form class="lead-form" novalidate>
-        <div class="f-row">
-          <label>Full Name <span class="req">*</span></label>
-          <input type="text" name="name" placeholder="Your full name" required>
-          <span class="f-err">Please enter your name.</span>
-        </div>
-        <div class="f-row">
-          <label>Mobile Number <span class="req">*</span></label>
-          <input type="tel" name="mobile" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" required>
-          <span class="f-err">Enter a valid 10-digit mobile number starting with 6–9.</span>
-        </div>
-        <div class="f-grid">
-          <div class="f-row">
-            <label>City <span class="req">*</span></label>
-            <select name="city" required>
-              <option value="">Select city</option>
-              <option>Noida</option><option>Greater Noida</option><option>Ghaziabad</option><option>Faridabad</option><option>Other</option>
-            </select>
-            <span class="f-err">Please select your city.</span>
-          </div>
+        <div class="fsteps"><span class="step-label">Step 1 of 2</span><span class="fbars"><span class="fbar active"></span><span class="fbar"></span></span></div>
+        <div class="fstep fstep-1">
           <div class="f-row">
             <label>Loan Type <span class="req">*</span></label>
             <select name="loantype" required>
@@ -239,22 +229,46 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
             </select>
             <span class="f-err">Please select a loan type.</span>
           </div>
+          <div class="f-row">
+            <label>Loan Amount Required <span class="req">*</span></label>
+            <select name="amount" required>
+              <option value="">Select amount</option>
+              <option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh–1 crore</option><option>Above ₹1 crore</option>
+            </select>
+            <span class="f-err">Please select an amount.</span>
+          </div>
+          <div class="f-row">
+            <label>City <span class="req">*</span></label>
+            <select name="city" required>
+              <option value="">Select city</option>
+              <option>Noida</option><option>Greater Noida</option><option>Ghaziabad</option><option>Faridabad</option><option>Other</option>
+            </select>
+            <span class="f-err">Please select your city.</span>
+          </div>
+          <button type="button" class="btn btn-next">Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
-        <div class="f-row">
-          <label>Loan Amount Required <span class="req">*</span></label>
-          <select name="amount" required>
-            <option value="">Select amount</option>
-            <option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh–1 crore</option><option>Above ₹1 crore</option>
-          </select>
-          <span class="f-err">Please select an amount.</span>
+        <div class="fstep fstep-2" hidden>
+          <div class="f-row">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Your full name" required>
+            <span class="f-err">Please enter your name.</span>
+          </div>
+          <div class="f-row">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" name="mobile" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" required>
+            <span class="f-err">Enter a valid 10-digit mobile number starting with 6–9.</span>
+          </div>
+          <div class="f-row">
+            <label>Message (optional)</label>
+            <textarea name="message" rows="1" placeholder="Anything we should know?"></textarea>
+          </div>
+          <button type="submit" class="btn">Request a Call Back
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button type="button" class="btn-back">&larr; Back to loan details</button>
         </div>
-        <div class="f-row">
-          <label>Message (optional)</label>
-          <textarea name="message" rows="1" placeholder="Anything we should know?"></textarea>
-        </div>
-        <button type="submit" class="btn">Request a Call Back
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
         <p class="form-tel">Or call us now: <a href="tel:+919800000000">+91 98XXX XXXXX</a></p>
         <p class="consent">By submitting, you agree to be contacted by CA Mantra on this number.</p>
       </form>
@@ -455,25 +469,8 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
       <h3>Get a call back today</h3>
       <p class="fc-sub">Tell us what you need. A CA from our team will call you back the same working day.</p>
       <form class="lead-form" novalidate>
-        <div class="f-row">
-          <label>Full Name <span class="req">*</span></label>
-          <input type="text" name="name" placeholder="Your full name" required>
-          <span class="f-err">Please enter your name.</span>
-        </div>
-        <div class="f-row">
-          <label>Mobile Number <span class="req">*</span></label>
-          <input type="tel" name="mobile" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" required>
-          <span class="f-err">Enter a valid 10-digit mobile number starting with 6–9.</span>
-        </div>
-        <div class="f-grid">
-          <div class="f-row">
-            <label>City <span class="req">*</span></label>
-            <select name="city" required>
-              <option value="">Select city</option>
-              <option>Noida</option><option>Greater Noida</option><option>Ghaziabad</option><option>Faridabad</option><option>Other</option>
-            </select>
-            <span class="f-err">Please select your city.</span>
-          </div>
+        <div class="fsteps"><span class="step-label">Step 1 of 2</span><span class="fbars"><span class="fbar active"></span><span class="fbar"></span></span></div>
+        <div class="fstep fstep-1">
           <div class="f-row">
             <label>Loan Type <span class="req">*</span></label>
             <select name="loantype" required>
@@ -482,22 +479,46 @@ h2{font-size:clamp(24px,3.4vw,34px);font-weight:800;text-align:center;margin-bot
             </select>
             <span class="f-err">Please select a loan type.</span>
           </div>
+          <div class="f-row">
+            <label>Loan Amount Required <span class="req">*</span></label>
+            <select name="amount" required>
+              <option value="">Select amount</option>
+              <option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh–1 crore</option><option>Above ₹1 crore</option>
+            </select>
+            <span class="f-err">Please select an amount.</span>
+          </div>
+          <div class="f-row">
+            <label>City <span class="req">*</span></label>
+            <select name="city" required>
+              <option value="">Select city</option>
+              <option>Noida</option><option>Greater Noida</option><option>Ghaziabad</option><option>Faridabad</option><option>Other</option>
+            </select>
+            <span class="f-err">Please select your city.</span>
+          </div>
+          <button type="button" class="btn btn-next">Continue
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
         </div>
-        <div class="f-row">
-          <label>Loan Amount Required <span class="req">*</span></label>
-          <select name="amount" required>
-            <option value="">Select amount</option>
-            <option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh–1 crore</option><option>Above ₹1 crore</option>
-          </select>
-          <span class="f-err">Please select an amount.</span>
+        <div class="fstep fstep-2" hidden>
+          <div class="f-row">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" name="name" placeholder="Your full name" required>
+            <span class="f-err">Please enter your name.</span>
+          </div>
+          <div class="f-row">
+            <label>Mobile Number <span class="req">*</span></label>
+            <input type="tel" name="mobile" placeholder="10-digit mobile number" maxlength="10" inputmode="numeric" required>
+            <span class="f-err">Enter a valid 10-digit mobile number starting with 6–9.</span>
+          </div>
+          <div class="f-row">
+            <label>Message (optional)</label>
+            <textarea name="message" rows="1" placeholder="Anything we should know?"></textarea>
+          </div>
+          <button type="submit" class="btn">Request a Call Back
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+          <button type="button" class="btn-back">&larr; Back to loan details</button>
         </div>
-        <div class="f-row">
-          <label>Message (optional)</label>
-          <textarea name="message" rows="1" placeholder="Anything we should know?"></textarea>
-        </div>
-        <button type="submit" class="btn">Request a Call Back
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
         <p class="consent">By submitting, you agree to be contacted by CA Mantra on this number.</p>
       </form>
     </div>
@@ -545,7 +566,9 @@ document.querySelectorAll('.faq-q').forEach(function(btn){
 });
 
 // Lead forms: inline validation on blur + redirect to thank-you on success
+// Two-step lead form: step 1 = loan details, step 2 = contact details
 document.querySelectorAll('.lead-form').forEach(function(form){
+  var s1 = form.querySelector('.fstep-1'), s2 = form.querySelector('.fstep-2');
   function validateField(el){
     var row = el.closest('.f-row');
     if(!row || !el.required) return true;
@@ -555,6 +578,28 @@ document.querySelectorAll('.lead-form').forEach(function(form){
     row.classList.toggle('invalid', !ok);
     return ok;
   }
+  function validStep(stepEl){
+    var ok = true;
+    stepEl.querySelectorAll('input,select,textarea').forEach(function(el){
+      if(!validateField(el)) ok = false;
+    });
+    if(!ok){
+      var bad = stepEl.querySelector('.f-row.invalid input, .f-row.invalid select');
+      if(bad) bad.focus();
+    }
+    return ok;
+  }
+  function setStep(n){
+    s1.hidden = n !== 1;
+    s2.hidden = n !== 2;
+    form.querySelectorAll('.fbar').forEach(function(b, i){ b.classList.toggle('active', i < n); });
+    var lbl = form.querySelector('.step-label');
+    if(lbl) lbl.textContent = 'Step ' + n + ' of 2';
+  }
+  form.querySelector('.btn-next').addEventListener('click', function(){
+    if(validStep(s1)) setStep(2);
+  });
+  form.querySelector('.btn-back').addEventListener('click', function(){ setStep(1); });
   form.querySelectorAll('input,select,textarea').forEach(function(el){
     el.addEventListener('blur', function(){ validateField(el); });
     el.addEventListener('input', function(){
@@ -563,12 +608,8 @@ document.querySelectorAll('.lead-form').forEach(function(form){
   });
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    var allOk = true;
-    form.querySelectorAll('input,select,textarea').forEach(function(el){
-      if(!validateField(el)) allOk = false;
-    });
-    if(allOk) window.location.href = 'thank-you.html';
-    else form.querySelector('.f-row.invalid input, .f-row.invalid select').focus();
+    if(!validStep(s1)){ setStep(1); return; }
+    if(validStep(s2)) window.location.href = 'thank-you.html';
   });
 });
 </script>
